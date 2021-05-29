@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import ListComponent from './components/listComponent/index';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    alert('Usuario: ' + email + ' Password: ' + password);
+    // mandar a backend
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <form onSubmit={handleFormSubmit}>
+       <h2>Iniciar sesión</h2>
+
+       <label>
+         Correo
+         <input type="email" value={email}
+          onChange={handleEmailChange}
+         />
+       </label>
+
+       <label>
+         Contrasena
+         <input type="password" value={password}
+          onChange={handlePasswordChange}
+         />
+       </label>
+
+       <button type="submit">
+         Enter
+       </button>
+     </form>
+     <ListComponent />
     </div>
   );
 }
