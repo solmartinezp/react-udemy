@@ -1,0 +1,20 @@
+useParams
+
+<Router>
+    <Switch>
+        <Route path="/blog/:slug" >
+            <BlogPost />
+        </Route>
+    </Switch>
+
+</Router>
+
+COMO SACO EL VALOR DE SLUG?
+En el BlogPost component:
+
+import { useParams } from 'react-router-dom';
+
+function BlogPost() {
+    let { slug } = useParams();
+    return <div> Now showing post {slug} </div>
+}

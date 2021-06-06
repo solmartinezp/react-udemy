@@ -1,0 +1,4 @@
+ENTRAR A UNA PAGINA DEPENDIENDO DE SI EL USUARIO ESTÁ LOGUEADO O NO:
+	<Route exact path="/">
+		{loggedIn ? <Redirecto to="/dashboard" /> : <PublicHomePage />}
+	</Route>

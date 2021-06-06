@@ -1,0 +1,23 @@
+useEffect: 
+-Adentro de la función anónima de useEffect es cuando puedo hacer HTTP requests
+-Es la combinación de componentDidMount y componentDidUpdate
+-Sin el useEffect, la HTTP request la tendría que hacer en componentDidUpdate
+
+-COMO CONTROLAR CUANDO SE EJECUTE EL USEEFFECT?
+-useEffect se ejecuta cada vez que se renderiza la página.
+-Puedo especificar que sólo quiero que useEffect se ejecute cuando cierto componente
+cambia.
+
+-QUE PASA SI QUIERO QUE EL USEEFFECT SE EJECUTE SOLO LA PRIMERA VEZ QUE SE RENDERIZA UN COMPONENTE?
+-Como segundo argumento, escribo un empty array: []. 
+-Sería el equivalente a usar sólo el componentDidMount (sin componentDidUpdate)
+
+CLEAN UP:
+-Código que corre antes de que un componente se remueva.
+
+useEffect(() => {
+	console.log('algo');
+	return () => { //esta función va a correr ANTES de la función en useEffect pero DESPUÉS del primer render cycle
+		console.log('clean up');
+	}
+}, [])

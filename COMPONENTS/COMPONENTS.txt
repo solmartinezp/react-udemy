@@ -1,0 +1,38 @@
+Una manera de crear components:
+
+import React, {Component} from 'react';
+//Reac SIEMPRE tiene que importarse para renderizar
+
+import './App.css';
+
+class App extends Component {
+	render() { //un método que siempre tiene que retornar algo para renderizar
+		return (
+			<div className= "App"> //className sirve para darle una clase al elemento y después editarlo en CSS
+				<h1>Hola</h1>
+			</div>
+		)
+	}
+
+
+
+}
+
+exports default App;
+
+-El código que se parece a HTML en realidad es JSX (sigue siendo javascript)
+-render() podría retornar también:
+	return React.createElement('div', {className: App}, 'h1', 'Hi, I\'m a React App');
+
+Argumentos: 1) el elemento HTML que quiero renderizar
+2) un objeto de configuración (opcional)
+3) the child elements of el div
+
+-El 'h1' se va a renderizar como TEXTO, no como HTML. 
+Para renderizar un elemento HTML tengo que hacer:
+	return React.createElement('div', null, React.createElement('h1', null, 'Texto en h1'));	
+
+-GOOD PRACTICE: 
+No podría agregar otro div abajo del que ya existe porque debería haber sólo un 
+root element.
+

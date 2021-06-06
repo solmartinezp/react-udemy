@@ -1,0 +1,44 @@
+CONFIGURATION OF COMPONENTS:
+
+CREO EL COMPONENT: 
+const person = (props) => {
+    return <p>I'm a {props.name} and I am {props.age} </p>
+}
+
+O
+
+class Person extends Component {
+	render() {
+		return <p> My name is {this.props}</p>;
+	}
+}
+
+-Props son las propiedades que le pasas aca cuando agregas Person al root element:
+    return(
+      <div className="App"> 
+       <h1>Soy Sol</h1>
+       <Person name="Sol" age="21"/>
+       <Person name="Abril" age="19"/>
+       <Person name="Azu" age="21"/>
+     </div>
+    )
+
+CHILDREN PROPS:
+Si tengo
+    return(
+      <div className="App"> 
+       <h1>Soy Sol</h1>
+       <Person name="Sol" age="21"> My hobbies: sleeping</Person>
+     </div>
+    )
+
+-Como hago para mostrar lo que está adentro de la etiqueta <Person>: 
+
+const person = (props) => {
+    return (
+	<div>
+		<p>I'm a {props.name} and I am {props.age} </p>
+		<p>{props.children}</p> //children se refiere a todos los elementos adentro de las etiquetas
+	</div>
+    )
+}

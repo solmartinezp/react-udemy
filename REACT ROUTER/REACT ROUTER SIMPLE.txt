@@ -1,0 +1,26 @@
+REACT ROUTER DOM:
+-BrowserRouter: es el tag que tiene que englobar a todas las rutas
+-Switch: tiene que ir cuando vamos a cambiar entre varias pantallas
+-Route: es una ruta (una pantalla)
+-Link: tag de html es el que <a></a>
+
+-Hay que crear una carpeta de views, donde van las rutas (ejemplo: el componente
+de Home)
+*VER PROYECTO ROUTER-APP en REACT.JS GUIA DESDE CERO
+
+-En el archivo App.js principal sólo va a ir un
+	function App() {
+		return <Router />;
+	}
+
+-En la carpeta re Routes importo el BrowseRouter y el componente Home:
+	function Routes() {
+		return (
+			<Router>
+            			<Route path="/" exact > //ENTRA SOLO SI LA RUTA ES "/"
+                			<Home />
+            			</Route>
+        		</Router>
+		);
+	}
+

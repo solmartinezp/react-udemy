@@ -1,0 +1,27 @@
+SCROLL RESTORATION:
+-Cuando cambio de una ruta hacia otra es posible que pierda el scroll,
+si en la ruta anterior estaba muy abajo en la página
+
+Window.scrollTo(0, 0); // para ir a lo más alto de la pantalla
+
+React Router usa un Hook para esto.
+
+useLocation() tiene todo el objeto de Window.location();
+El useLocation() te sirve para usar el Hook de ScrollToTop() de React Router 
+para restaurar el scroll cuando cambias de ruta.
+EJEMPLO:
+	import { useEffect } from 'react';
+	import { useLocation } from 'react-router-dom';
+
+	export default function ScrollToTop() {
+		const { pathname } = useLocation();
+
+		useEffect(() => {
+			window.scrollTo(0,0);
+		}, [pathname])
+
+		return null;
+	}
+
+-Esto lo que hace es fijarse que cada vez que cambies de ruta (pathname)
+vuelva el scroll al Top.

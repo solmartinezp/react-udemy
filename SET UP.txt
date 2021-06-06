@@ -1,0 +1,15 @@
+-SETTING UP REACT:
+-npm modules:
+
+-bundler (webpack)
+
+-compiler (babel)
+
+-development server (live server)
+
+Todo esto lo consigo con create react app:
+En my root directory: 
+
+npm init react-app my-app //'my-app' es el nombre del proyecto
+
+npm start

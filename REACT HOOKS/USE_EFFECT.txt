@@ -1,0 +1,28 @@
+Use Effect:
+
+-componentDidMount() -> El equivalente a componentDidMount usando useEffect:
+	useEffect(() => {}, [])
+*El callback se llama sólo cuando se monta el componente (aunque se hagan
+muchos re-renders, no va a volver a cambiar)
+
+-componentDidUpdate() -> El equivalente a componentDidUpdate usando useEffect:
+	useEffect(() => {})
+*El callback se va a llamar en cada renderizado, en cada actualización del
+componente
+
+componentWillUnMount -- > how can I run some teardown  code? 
+A function that will run right before the component is removed from UI
+
+useEffect(()=> {
+	alert('hello side effect!');
+	
+	return ()=> alert('goodbye component!'); // teardown code
+});
+
+-NUNCA USAR useEffect(async () => {});
+*Lo que puedo hacer es:
+	useEffect(() => {
+		const myFunction = async () => {
+			{---}
+		}
+	}, []);

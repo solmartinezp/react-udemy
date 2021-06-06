@@ -1,0 +1,15 @@
+USE REF:
+
+-Se usa para cuando tengo un valor mutable pero que su cambio no causa
+una re-renderización del UI
+-Se usa para agarrar HTML elementos del DOM
+
+function App() {
+	const myBtn= useRef(null);
+	
+	const clickIt= () => myBtn.current.click(); //clickea el boton
+
+	return (
+		<button ref={myBtn} ></button>
+	);	
+}

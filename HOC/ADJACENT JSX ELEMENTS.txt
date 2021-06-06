@@ -1,0 +1,31 @@
+-Técnicamente, cuando en una función o una clase extends Component, pones un return,
+lo que escribis ahí adentro siempre tiene que estar cerrado entre un <div></div> y no 
+podría poner 2 divs. 
+-Eso lo puedo cambiar cerrando todo el código adentro de return en un [] y separando
+cada elemento con comas. 
+-También tengo que agregarle un key.
+POR EJEMPLO: 
+
+return
+	[
+		<p key='1'>Hola</p>,
+		<p key='2'>Como estas?</p>
+	]
+;
+
+OTRA FORMA DE PONER USAR ADJACENT JSX ELEMENTS:
+-Creo una carpeta hoc
+-Creo un archivo Auxiliary.js
+
+import React from 'react';
+
+const aux = props => props.children;
+
+export default aux;
+
+-Importar el aux en donde está tu component. 
+-Usas aux como un elemento para englobar al resto de tu código jsx adentro del return.
+
+EL AUX SE PUEDE USAR PERO REACT YA TE VIENE CON OTRA COSA QUE PODES USAR
+Y QUE FUNCIONA DE LA MISMA MANERA: React.Fragment
+<React.Fragment> todo lo que quieras </React.Fragment>

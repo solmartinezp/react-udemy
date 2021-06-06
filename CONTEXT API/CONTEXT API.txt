@@ -1,0 +1,9 @@
+CONTEXT API:
+-Nos ayuda a pasarle la información a todos los hijos, a todos los 
+descendientes, para poder guardarlos y consultarlos desde cualquier
+componente.
+-PROVIDER: es un componente que guarda la información y tiene métodos
+-Esto se puede lograr, sólo suscribiendose a ese contexto.
+-El Provider hay que agregarlo en los componentes padres y así
+lo pueden utilizar los hijos.
+-Es recomendable tener UN Provider para cada información que tenga

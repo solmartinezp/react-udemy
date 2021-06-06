@@ -1,0 +1,26 @@
+USE CONTEXT:
+-It allowa me to share data without passing props across multiple
+disconnected components.
+
+EXAMPLE:
+
+const moods= { // data que quiero compartir
+	happy: 'ok',
+	sad: 'crying'
+}
+
+const MoodContext= createContext(moods);
+
+function App(props) {
+	return (
+		<MoodContext.Provider value={moods.happy}>
+			<MoodEmoji />
+		</MoodContext.Provider>
+	);
+}
+
+function MoodEmoji() {
+	const mood= useContext(MoodContext); // consume value from nearest parent provider
+	
+	return <p>{mood}</p>
+}

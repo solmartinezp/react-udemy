@@ -1,0 +1,18 @@
+import React from 'react';
+
+const withClass= (WrappedComponent, className) => {
+	return props=> (
+		<div className={className}>
+			<WrappedComponent />
+		</div>
+	);	
+
+};
+
+-Es una función que retorna a functional component (no retorna un component)
+
+-Después lo importas en donde quieras usarlo (por ejemplo en App.js)
+-Y en donde lo usas tenes que poner: 
+	export default withClass(App, classes.App); //App sería WrappedComponent y classes.App sería className
+
+-El contenido de return de App.js tendría que estar cerrado entre un Aux. 

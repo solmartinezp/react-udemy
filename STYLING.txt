@@ -1,0 +1,15 @@
+RADIUM:
+	npm install --save radium
+
+import Radium from 'radium'
+
+-Funciona tanto en class extends Component como en arrow functions.
+-Cuando exporto el component o la App, tengo que agregar el Radium(App)
+-Si uso media queries, también tengo que importar:
+
+import Radium, { StyleRoot } from 'radium'
+
+-Y englobar a lo que retornas en una tag que sea <StyleRoot> </StyleRoot>
+
+STYLED COMPONENTS:
+	npm install --save styled-components 

@@ -1,0 +1,17 @@
+PROP TYPES:
+-Paquete de React: npm install --save prop-types
+
+import PropTypes from 'prop-types';
+
+class Person extends Component {
+	render () {
+		return (
+			<p onClick={this.props.click}> Hola {this.props.name} </p> 
+		);
+	}
+}
+
+Person.propTypes= {
+	click: PropTypes.func, //function
+	name: PropTypes.string
+};
