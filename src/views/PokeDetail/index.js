@@ -1,13 +1,26 @@
 import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import PokemonContext from '../../context/pokemons';
+// import PokemonContext from '../../context/pokemons';
 import PokeStats from './components/PokeStats';
 import ErrorMessage from '../../components/ErrorMessage';
 import Loading from '../../components/Loading';
+import usePokemonsStore from '../../zustand/stores/pokemons';
+import shallow from 'zustand/shallow';
 
 export default function PokeDetail() {
     const { id } = useParams();
-    const { getPokemonDetail, pokemonDetail, isLoading, hasError, errorMessage } = useContext(PokemonContext);
+
+    // PROVIDER DE CONTEXT API
+    // const { getPokemonDetail, pokemonDetail, isLoading, hasError, errorMessage } = useContext(PokemonContext);
+
+    // STORE DE ZUSTAND
+    const { getPokemonDetail, pokemonDetail, isLoading, hasError, errorMessage } = usePokemonsStore((state) => ({
+        getPokemonDetail: state.getPokemonDetail, 
+        pokemonDetail: state.pokemonDetail, 
+        isLoading: state.isLoading, 
+        hasError: state.hasError, 
+        errorMessage: state.errorMessage,
+    }), shallow);
 
     useEffect(() => {
         // Cada vez que se cargue la pantalla o cada vez que cambie
@@ -15,6 +28,7 @@ export default function PokeDetail() {
         getPokemonDetail(id).catch(null);
     }, [])
 
+    console.log(isLoading);
     if (isLoading) {
         return (<Loading title="Cargando pokemon..." />)
     }
