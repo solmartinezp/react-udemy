@@ -1,8 +1,8 @@
 export default async function abstractService({
     url,
-    method= "get",
+    method,
     body,
-    headers
+    headers,
 }) {
     try {
         const response= await fetch(url, {

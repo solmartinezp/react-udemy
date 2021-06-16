@@ -30,6 +30,7 @@ export default function LoginForm() {
             localStorage.setItem('loggedUser', user.id); // acá se guarda el token en el storage
             return <Redirect to="/home" />;
         } else {
+            alert('Usuario o contraseña incorrecta!');
             console.log('Usuario o contraseña incorrecta!');
         }
       };
