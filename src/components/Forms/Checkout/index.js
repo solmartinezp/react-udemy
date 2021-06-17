@@ -15,6 +15,7 @@ export default function CheckoutForm() {
     const [hasError, setHasError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [response, setResponse] = useState(false);
+    const [url, setUrl] = useState('');
 
     const handleChange= (event, set) => {
         set(event.target.value);
@@ -48,10 +49,13 @@ export default function CheckoutForm() {
                 headers: myHeaders
             });
 
-            console.log(checkoutResponse);
-            setResponse(true);
-            // redirigir a la url de la respuesta
-
+            if (checkoutResponse.status_code === 200) {
+                setResponse(true);
+                setUrl(checkoutResponse.url);
+            } else {
+                // ERROR
+            }
+            
         } catch(error) {
             setHasError(true);
             setErrorMessage('Algo ha pasado, verifica tu conexión');
@@ -62,7 +66,7 @@ export default function CheckoutForm() {
     };
 
     if (response) {
-        return <Redirect to="successful_transaction" />;
+        return <Redirect to={url} />;
     }
 
     return (
